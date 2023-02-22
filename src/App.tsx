@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.sass";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const date = new Date(Date.now()).toLocaleDateString("no-NB", { weekday: 'short', month: 'short', day: 'numeric' });
 
   return (
     <div className="App">
-      <h1>I DAG</h1>
+      <h1>IDAG</h1>
+      <div>{date}</div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
