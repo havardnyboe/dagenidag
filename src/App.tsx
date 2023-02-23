@@ -36,20 +36,22 @@ function Sitat(props: sitat) {
 }
 
 function App() {
-  const navnedager: {[index: string]:string} = ndjson
+  const navnedager: { [index: string]: string } = ndjson;
+  const helligdag = null;
+
   const dato = new Date(Date.now()).toLocaleDateString("no-NB", {
     weekday: "short",
     month: "short",
-    day: "numeric",
-  });
-  const idagLang:string = new Date(Date.now()).toLocaleDateString("no-NB", {
-    month: "long",
     day: "numeric",
   });
   const start = new Date(new Date().getFullYear(), 0, 0);
   const enDag = 1000 * 60 * 60 * 24;
   const idag = Math.floor((new Date().getTime() - start.getTime()) / enDag);
   const igjen = isLeapYear(new Date().getFullYear()) ? 366 - idag : 365 - idag;
+  const idagLang = new Date(Date.now()).toLocaleDateString("no-NB", {
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <div className="App">
@@ -63,8 +65,9 @@ function App() {
             {idag}. dag i året, {igjen} igjen
           </div>
           <div className="navnedag">
-            Navnedag: <br />
-            <span>{navnedager[idagLang]}</span>
+            <div className="helligdag">{helligdag ? helligdag : <br />}</div>
+            <div>Navnedag:</div>
+            <div>{navnedager[idagLang]}</div>
           </div>
         </div>
       </div>
