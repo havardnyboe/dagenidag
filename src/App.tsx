@@ -1,4 +1,5 @@
 import "./App.sass";
+import ndjson from "../public/navnedager.json";
 
 function isLeapYear(year: number) {
   return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
@@ -26,20 +27,28 @@ function Historie(props: historie) {
 function Sitat(props: sitat) {
   return (
     <div className="sitat">
-      <p>{props.content}<span>{props.author}</span></p>
+      <p>
+        {props.content}
+        <span>{props.author}</span>
+      </p>
     </div>
   );
 }
 
 function App() {
+  const navnedager: {[index: string]:string} = ndjson
   const dato = new Date(Date.now()).toLocaleDateString("no-NB", {
     weekday: "short",
     month: "short",
     day: "numeric",
   });
+  const idagLang:string = new Date(Date.now()).toLocaleDateString("no-NB", {
+    month: "long",
+    day: "numeric",
+  });
   const start = new Date(new Date().getFullYear(), 0, 0);
-  const dag = 1000 * 60 * 60 * 24;
-  const idag = Math.floor((new Date().getTime() - start.getTime()) / dag);
+  const enDag = 1000 * 60 * 60 * 24;
+  const idag = Math.floor((new Date().getTime() - start.getTime()) / enDag);
   const igjen = isLeapYear(new Date().getFullYear()) ? 366 - idag : 365 - idag;
 
   return (
@@ -55,7 +64,7 @@ function App() {
           </div>
           <div className="navnedag">
             Navnedag: <br />
-            <span>Ola Nordmann</span>
+            <span>{navnedager[idagLang]}</span>
           </div>
         </div>
       </div>
@@ -74,7 +83,10 @@ function App() {
       />
       <Historie year={2023} content={"Tekst-TV blir borte :("} />
       <div className="banner"></div>
-      <Sitat author="Marve Almar Fleksnes" content="Ikke host i øst og vest, lommetørkle beskytter best!"/>
+      <Sitat
+        author="Marve Almar Fleksnes"
+        content="Ikke host i øst og vest, lommetørkle beskytter best!"
+      />
     </div>
   );
 }
