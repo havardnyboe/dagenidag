@@ -2,7 +2,7 @@ import wiki from "wikipedia";
 import { historie } from "../components";
 
 wiki.setLang("no");
-const Dagen_i_dag = await wiki
+const dagen_i_dag = await wiki
   .page("Wikipedia:Dagen_i_dag")
   .then((res) => res.html());
 
@@ -15,12 +15,34 @@ function convertStringToHistorie(str: string) {
   return hist;
 }
 
-export function historienIdag(): historie[] | undefined {
+function getRandomInt(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function byYear(a: historie, b: historie) {
+  if (a.year > b.year) return 1;
+  else if (a.year < b.year) return -1;
+  else return 0;
+}
+
+export function historienIdag(): historie[] {
   const parser = new DOMParser();
-  const page = parser.parseFromString(Dagen_i_dag, "text/html");
+  const page = parser.parseFromString(dagen_i_dag, "text/html");
   const content = page.querySelector("#Historie")
     ?.parentElement?.parentElement?.nextElementSibling?.textContent?.split("\n");
-  const historie = content?.map((hist) => convertStringToHistorie(hist));
+  const historie = content?.map((hist) => convertStringToHistorie(hist)) || new Array<historie>;
+  
+  let tmp: any[] = [];
+  tmp.push(historie.pop());
+  tmp.push(historie.shift());
+  const len = historie.length > 3 ? 3 : historie.length;
+  for (let i = 0; i < len; i++) {
+    const random = getRandomInt(0, tmp.length);
+    tmp.push(historie?.splice(random, 1)[0])
+  }
+  tmp.sort(byYear);
 
-  return historie;
+  return tmp;
 }
