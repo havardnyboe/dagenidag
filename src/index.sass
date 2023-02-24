@@ -1,19 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap")
-
-@font-face
-  font-family: "Kongtext"
-  src: local("kongtext"), url(./fonts/kongtext/kongtext.ttf) format("truetype")
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap')
 
 :root
-  /* font-family: "Share Tech Mono", monospace; */
-  /* font-family: "VT323", monospace; */
-  font-size: 16px
-  line-height: 24px
-  font-weight: 400
-
   color-scheme: light dark
   color: rgba(255, 255, 255, 0.87)
-
+  line-height: 24px
+  font-size: 16px
+  font-weight: 400
   font-synthesis: none
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
@@ -24,9 +16,8 @@ a
   font-weight: 500
   color: #646cff
   text-decoration: inherit
-
-a:hover
-  color: #535bf2
+  &:hover
+    color: #535bf2
 
 body
   background: black
@@ -50,21 +41,8 @@ button
   background-color: #1a1a1a
   cursor: pointer
   transition: border-color 0.25s
-
-button:hover
-  border-color: #646cff
-
-button:focus,
-button:focus-visible
-  outline: 4px auto -webkit-focus-ring-color
-
-@media (prefers-color-scheme: light)
-:root
-  color: #213547
-  background-color: #ffffff
-
-a:hover
-  color: #747bff
-
-button
-  background-color: #f9f9f9
+  &:hover
+    border-color: #646cff
+  &:focus,
+  &:focus-visible
+    outline: 4px auto -webkit-focus-ring-color

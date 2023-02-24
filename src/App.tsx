@@ -1,5 +1,7 @@
 import "./App.sass";
 import ndjson from "../public/navnedager.json";
+import Holidays from "date-holidays";
+import idagLogo from "./img/idag.gif";
 
 function isLeapYear(year: number) {
   return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
@@ -37,7 +39,16 @@ function Sitat(props: sitat) {
 
 function App() {
   const navnedager: { [index: string]: string } = ndjson;
-  const helligdag = null;
+  let helligdag = null;
+
+  const hd = new Holidays("no");
+  console.log(hd.getHolidays(2023));
+  hd.getHolidays().forEach((h) => {
+    new Date(String(h?.date)).toLocaleDateString() ===
+    new Date().toLocaleDateString()
+      ? (helligdag = h.name)
+      : "";
+  });
 
   const dato = new Date(Date.now()).toLocaleDateString("no-NB", {
     weekday: "short",
@@ -57,7 +68,9 @@ function App() {
     <div className="App">
       <div className="tittel">
         <div>
-          <h1>IDAG</h1>
+          <h1>
+            <img width="180px" src={idagLogo} alt="IDAG" />
+          </h1>
           <div>{dato}</div>
         </div>
         <div>
