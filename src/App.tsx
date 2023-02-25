@@ -5,9 +5,14 @@ import { historienIdag } from "./utils/wiki";
 import { Historie, Sitat } from "./components";
 import { datoString, helligdag, idag, idagLang, igjen } from "./utils/dag";
 
+const sitat = document.querySelector("#sitat");
+
 function App() {
   const navnedager: { [index: string]: string } = navnedag;
   const historier = historienIdag();
+
+  const sitatTekst = sitat?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[0].textContent
+  const sitatAv = sitat?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[3].textContent
 
   return (
     <div className="App">
@@ -30,16 +35,19 @@ function App() {
         </div>
       </div>
       <div className="banner"></div>
+      { <script  src="https://www.ordtak.no/dagens/humor/"></script> }
       {historier?.map((hist, i) => <Historie key={i} year={hist.year} content={hist.content} />)}
       <div>
       <div className="banner"></div>
       </div>
       <Sitat
-        author="Marve Almar Fleksnes"
-        content="Ikke host i øst og vest, lommetørkle beskytter best!"
+        author={sitatAv || "Marve Almar Fleksnes"}
+        content={sitatTekst || "Ikke host i øst og vest, lommetørkle beskytter best!"}
       />
     </div>
   );
 }
+
+sitat?.remove();
 
 export default App;
