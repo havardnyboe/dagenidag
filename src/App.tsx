@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.sass";
 import navnedag from "../public/navnedager.json";
 import idagLogo from "./img/idag.gif";
@@ -5,7 +6,7 @@ import { historienIdag } from "./utils/wiki";
 import { historie, Historie, Sitat } from "./components";
 import { datoString, helligdag, idag, idagLang, igjen } from "./utils/dag";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
+import loading from "./img/103.gif";
 
 const sitat = document.querySelector("#sitat");
 
@@ -54,12 +55,7 @@ function App() {
         historier?.map((hist, i) => (
           <Historie key={i} year={hist.year} content={hist.content} />
         ))
-      ) : (
-        <Historie
-          year={Number("404")}
-          content={"Kloink! Ser ut som det ikke har lastet noe enda!"}
-        />
-      )}
+      ) : <img className="laster" src={loading} alt="laster"/>}
       <div className="banner"></div>
       <Sitat
         author={sitatAv || "Marve Almar Fleksnes"}
