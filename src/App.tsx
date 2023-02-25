@@ -29,7 +29,7 @@ function App() {
             {idag}. dag i året, {igjen} igjen
           </div>
           <div className="navnedag">
-            <div className="helligdag">{helligdag ? helligdag : <br />}</div>
+            <div className="helligdag">{helligdag ? helligdag[0].name : <br />}</div>
             <div>Navnedag:</div>
             <div>{navnedager[idagLang]}</div>
           </div>
