@@ -36,7 +36,7 @@ export function historienIdag(): historie[] {
   tmp.push(historie.shift());
   const len = historie.length > 3 ? 3 : historie.length;
   for (let i = 0; i < len; i++) {
-    const random = getRandomInt(0, tmp.length);
+    const random = getRandomInt(0, historie.length-1);
     tmp.push(historie?.splice(random, 1)[0])
   }
   tmp.sort(byYear);
