@@ -1,10 +1,7 @@
-import wiki from "wikipedia";
 import { historie } from "../components";
 
-wiki.setLang("no");
-const dagen_i_dag = await wiki
-  .page("Wikipedia:Dagen_i_dag")
-  .then((res) => res.html());
+const dagen_i_dag = (await fetch("https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=Wikipedia:Dagen_i_dag").then(res => res.json())).parse.text["*"];
+
 
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: 0, content: "" };
