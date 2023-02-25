@@ -4,6 +4,7 @@ import idagLogo from "./img/idag.gif";
 import { historienIdag } from "./utils/wiki";
 import { Historie, Sitat } from "./components";
 import { datoString, helligdag, idag, idagLang, igjen } from "./utils/dag";
+import Footer from "./components/Footer";
 
 const sitat = document.querySelector("#sitat");
 
@@ -11,15 +12,15 @@ function App() {
   const navnedager: { [index: string]: string } = navnedag;
   const historier = historienIdag();
 
-  const sitatTekst = sitat?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[0].textContent
-  const sitatAv = sitat?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[3].textContent
+  const sitatTekst = sitat?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[0].textContent;
+  const sitatAv = sitat?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[3].textContent;
 
   return (
     <div className="App">
       <div className="tittel">
         <div>
           <h1>
-            <img width="180px" src={idagLogo} alt="IDAG" />
+            <img className="iDag" src={idagLogo} alt="IDAG" />
           </h1>
           <div>{datoString}</div>
         </div>
@@ -35,15 +36,16 @@ function App() {
         </div>
       </div>
       <div className="banner"></div>
-      { <script  src="https://www.ordtak.no/dagens/humor/"></script> }
-      {historier?.map((hist, i) => <Historie key={i} year={hist.year} content={hist.content} />)}
-      <div>
+      {<script src="https://www.ordtak.no/dagens/humor/"></script>}
+      {historier?.map((hist, i) => (
+        <Historie key={i} year={hist.year} content={hist.content} />
+      ))}
       <div className="banner"></div>
-      </div>
       <Sitat
         author={sitatAv || "Marve Almar Fleksnes"}
         content={sitatTekst || "Ikke host i øst og vest, lommetørkle beskytter best!"}
       />
+      <Footer />
     </div>
   );
 }

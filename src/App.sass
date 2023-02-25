@@ -1,27 +1,40 @@
+$medium: 1921px
+$large: 3800px
+  
 #root
   margin: 0 auto
   color: #CC0000
   font-family: 'Source Code Pro', monospace
   font-size: 1.2em
   line-height: 1.3em
-
   h1
-    font-family: Kongtext
     margin: 0
-    margin-right: 32px
 
 .App
   display: flex
   flex-direction: column
   width: 540px
-  @media screen and (min-width: 1921px)
-    transform: scale(1.6)
-  @media screen and (min-width: 3800px)
-    transform: scale(2.2)
+  @media screen and (min-width: $medium)
+    width: 820px
+    font-size: 1.5em
+    line-height: 1.4em
+  @media screen and (min-width: $large)
+    width: 1100px
+    font-size: 2em
 
 .tittel
   display: flex
   align-items: flex-end
+
+.iDag
+  width: 180px
+  margin-right: 32px
+  @media screen and (min-width: $medium)
+    width: 280px
+    margin-right: 64px
+  @media screen and (min-width: $large)
+    margin-right: 100px
+    width: 360px
 
 .banner
   background: #CC0000
