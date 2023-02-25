@@ -1,8 +1,5 @@
 import { historie } from "../components";
 
-const dagen_i_dag = (await fetch("https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=Wikipedia:Dagen_i_dag").then(res => res.json())).parse.text["*"];
-
-
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: 0, content: "" };
   const items = str.split("–").map((str) => str.trim());
@@ -24,22 +21,32 @@ function byYear(a: historie, b: historie) {
   else return 0;
 }
 
-export function historienIdag(): historie[] {
+export async function historienIdag(): Promise<historie[]> {
+  const dagen_i_dag = fetch(
+    "https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=Wikipedia:Dagen_i_dag"
+  )
+    .then((res) => res.json())
+    .then((res) => res.parse.text["*"]);
   const parser = new DOMParser();
-  const page = parser.parseFromString(dagen_i_dag, "text/html");
-  const content = page.querySelector("#Historie")
-    ?.parentElement?.parentElement?.nextElementSibling?.textContent?.split("\n");
-  const historie = content?.map((hist) => convertStringToHistorie(hist)) || new Array<historie>;
-  
-  let tmp: any[] = [];
-  tmp.push(historie.pop());
-  tmp.push(historie.shift());
-  const len = historie.length > 3 ? 3 : historie.length;
-  for (let i = 0; i < len; i++) {
-    const random = getRandomInt(0, historie.length-1);
-    tmp.push(historie?.splice(random, 1)[0])
-  }
-  tmp.sort(byYear);
+  const page = parser.parseFromString(await dagen_i_dag, "text/html");
+  const content = page
+    .querySelector("#Historie")
+    ?.parentElement?.parentElement?.nextElementSibling?.textContent?.split(
+      "\n"
+    );
+  const temp =
+    content?.map((hist) => convertStringToHistorie(hist)) ||
+    new Array<historie>();
 
-  return tmp;
+  let historie: any = [];
+  historie.push(temp.pop());
+  historie.push(temp.shift());
+  const len = temp.length > 3 ? 3 : temp.length;
+  for (let i = 0; i < len; i++) {
+    const random = getRandomInt(0, temp.length - 1);
+    historie.push(temp?.splice(random, 1)[0]);
+  }
+  historie.sort(byYear);
+
+  return historie;
 }
