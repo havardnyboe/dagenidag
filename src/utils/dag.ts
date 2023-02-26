@@ -7,7 +7,6 @@ function isLeapYear(year: number) {
 let hd = new Holidays("no");
 hd.setHoliday("03-08", "Kvinnedagen");
 hd.setHoliday("04-01", "Aprilsnarr");
-console.log(hd.getHolidays());
 const helligdag = hd.isHoliday(new Date());
 
 const datoString = new Date().toLocaleDateString("no-NB", {
