@@ -1,4 +1,4 @@
-import { historie } from "../components";
+import { historie, historieYear } from "../components";
 
 enum WikiType {
   historie,
@@ -8,9 +8,9 @@ enum WikiType {
 }
 
 function convertStringToHistorie(str: string) {
-  let hist: historie = { year: 0, content: "" };
+  let hist: historie = { year: [0], content: "" };
   const items = str.split("–").map((str) => str.trim()); // obs må være – og ikke -
-  hist.year = Number(items[0]);
+  hist.year = historieYear(items[0].split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   hist.content = items[1].replace(/(?:\[)([0-9])(?:])/, ""); // fjerner referanse markeringer ([1] osv.)
 
   return hist;
@@ -23,8 +23,8 @@ function getRandomInt(min: number, max: number) {
 }
 
 function byYear(a: historie, b: historie) {
-  if (a.year > b.year) return 1;
-  else if (a.year < b.year) return -1;
+  if (a.year[0] > b.year[0]) return 1;
+  else if (a.year[0] < b.year[0]) return -1;
   else return 0;
 }
 

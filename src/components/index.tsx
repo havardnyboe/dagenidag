@@ -1,6 +1,13 @@
 export interface historie {
-  year: number;
+  year: [num: number, alt?: string];
   content: string;
+}
+
+export function historieYear(arr: string[]) {
+  const newArr: historie["year"] = [0];
+  newArr[0] = Number(arr.shift());
+  if (arr.length > 0) newArr.push(" " + arr.shift(), ...arr);
+  return newArr;
 }
 
 export interface sitat {
