@@ -20,4 +20,6 @@ Hendelser fra historien er hentet med [Wikipedias API](https://www.mediawiki.org
 
 ## Sitater
 
-Sitatet er [Dagens sitat](https://www.ordtak.no/kvisskvass.php?tema=dagenssitat) fra [ordtak.no](https://www.ordtak.no).
+Sitater på [dagenidag.com/sitater.json](https://www.dagenidag.com/sitater.json) er for det meste hentet fra [Wikiquote](https://no.m.wikiquote.org/)
+
+Fallback sitatet er [Dagens sitat](https://www.ordtak.no/kvisskvass.php?tema=dagenssitat) fra [ordtak.no](https://www.ordtak.no).

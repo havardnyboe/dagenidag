@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.sass";
 import navnedag from "../public/navnedager.json";
+import sitat from "../public/sitater.json";
 import idagLogo from "./img/idag.gif";
 import { historienIdag } from "./utils/wiki";
 import { historie, Historie, Sitat } from "./components";
@@ -8,18 +9,20 @@ import { datoString, helligdag, idag, idagLang, igjen } from "./utils/dag";
 import Footer from "./components/Footer";
 import loading from "./img/103.gif";
 
-const sitat = document.querySelector("#sitat");
-
 function App() {
   const navnedager: { [index: string]: string } = navnedag;
+  const sitater: { [index: string]: { author: string; content: string } } =
+    sitat;
   const [historier, setHistorier] = useState(Array<historie>);
 
   const sitatTekst =
-    sitat?.firstElementChild?.nextElementSibling?.firstElementChild
-      ?.firstElementChild?.nextElementSibling?.childNodes[0].textContent;
+    document.querySelector("#sitat")?.firstElementChild?.nextElementSibling
+      ?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[0]
+      .textContent;
   const sitatAv =
-    sitat?.firstElementChild?.nextElementSibling?.firstElementChild
-      ?.firstElementChild?.nextElementSibling?.childNodes[3].textContent;
+    document.querySelector("#sitat")?.firstElementChild?.nextElementSibling
+      ?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[3]
+      .textContent;
 
   useEffect(() => {
     historienIdag().then((hist) => {
@@ -55,17 +58,19 @@ function App() {
         historier?.map((hist, i) => (
           <Historie key={i} year={hist.year} content={hist.content} />
         ))
-      ) : <img className="laster" src={loading} alt="laster"/>}
+      ) : (
+        <img className="laster" src={loading} alt="laster" />
+      )}
       <div className="banner"></div>
       <Sitat
-        author={sitatAv || "Marve Almar Fleksnes"}
-        content={sitatTekst || "Ikke host i øst og vest, lommetørkle beskytter best!"}
+        author={sitater[idagLang].author || sitatAv || "Marve Almar Fleksnes"}
+        content={sitater[idagLang].content || sitatTekst || "Ikke host i øst og vest, lommetørkle beskytter best!"}
       />
       <Footer />
     </div>
   );
 }
 
-sitat?.remove();
+// document.querySelector("#sitat")?.remove();
 
 export default App;
