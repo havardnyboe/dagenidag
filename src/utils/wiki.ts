@@ -9,9 +9,10 @@ enum WikiType {
 
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: [0], content: "" };
-  const items = str.split("–").map((str) => str.trim()); // obs må være – og ikke -
-  hist.year = historieYear(items[0].split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
-  hist.content = items[1].replace(/(?:\[)([0-9])(?:])/, ""); // fjerner referanse markeringer ([1] osv.)
+  const items = str.split(/–(.*)/s).map((str) => str.trim()); // obs må være – og ikke -
+  hist.year = historieYear(items[0]?.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
+  items.shift();
+  hist.content = items.join(" ").replace(/(?:\[)([0-9])(?:])/, ""); // fjerner referanse markeringer ([1] osv.)
 
   return hist;
 }
@@ -49,7 +50,7 @@ function getHistorie(page: Document, type: WikiType): Array<string> {
   return content?.textContent?.split("\n") || new Array<string>();
 }
 
-// returnerer en Promise med en liste fem med historie objekter, 
+// returnerer en Promise med en liste fem med historie objekter,
 // der første historie alltid eldste hendelse og siste alltid er nyeste
 // og resten er tilfeldig valgt
 export async function historienIdag(): Promise<historie[]> {
@@ -70,8 +71,8 @@ export async function historienIdag(): Promise<historie[]> {
       ) || new Array<historie>();
   content.sort(byYear); // sorterer den kombinerte listen
 
-  let historie: any[] = [];       // burde definert type men ble litt knot
-  historie.push(content.pop());   // henter første
+  let historie: any[] = []; // burde definert type men ble litt knot
+  historie.push(content.pop()); // henter første
   historie.push(content.shift()); // henter siste
   const len = content.length > 3 ? 3 : content.length;
   for (let i = 0; i < len; i++) {
