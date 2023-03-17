@@ -1,3 +1,5 @@
+import style from "./components.module.sass";
+
 export interface historie {
   year: [num: number, alt?: string];
   content: string;
@@ -17,20 +19,20 @@ export interface sitat {
 
 export function Historie(props: historie) {
   return (
-    <div className="historie">
+    <section className={style.historie}>
       <span>{props.year}</span>
       <p>{props.content}</p>
-    </div>
+    </section>
   );
 }
 
 export function Sitat(props: sitat) {
   return (
-    <div className="sitat">
+    <section className={style.sitat}>
       <p>
         {props.content}
         <span>{props.author}</span>
       </p>
-    </div>
+    </section>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.sass";
+import style from "./App.module.sass";
 import navnedag from "../public/navnedager.json";
 import sitat from "../public/sitater.json";
 import idagLogo from "./img/idag.gif";
@@ -31,43 +31,43 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="tittel">
+    <main className={style.App}>
+      <section className={style.tittel}>
         <div>
-          <h1>
-            <img className="iDag" src={idagLogo} alt="IDAG" />
-          </h1>
-          <div>{datoString}</div>
+          <div>
+            <img className={style.iDag} src={idagLogo} alt="IDAG" />
+          </div>
+          <span data-testid="dagensDato">{datoString}</span>
         </div>
         <div>
-          <div className="igjen">
+          <div className={style.igjen}>
             {idag}. dag i året, {igjen} igjen
           </div>
-          <div className="navnedag">
-            <div className="helligdag">
+          <div className={style.navnedag}>
+            <div className={style.helligdag}>
               {helligdag ? helligdag[0].name : <br />}
             </div>
             <div>Navnedag:</div>
             <div>{navnedager[idagLang]}</div>
           </div>
         </div>
-      </div>
-      <div className="banner"></div>
+      </section>
+      <div className={style.banner}></div>
       {<script src="https://www.ordtak.no/dagens/humor/"></script>}
       {historier.length > 0 ? (
         historier?.map((hist, i) => (
           <Historie key={i} year={hist.year} content={hist.content} />
         ))
       ) : (
-        <img className="laster" src={loading} alt="laster" />
+        <img className={style.laster} src={loading} alt="laster" />
       )}
-      <div className="banner"></div>
+      <div className={style.banner}></div>
       <Sitat
         author={sitater[idagLang].author || sitatAv || "Marve Almar Fleksnes"}
         content={sitater[idagLang].content || sitatTekst || "Ikke host i øst og vest, lommetørkle beskytter best!"}
       />
       <Footer />
-    </div>
+    </main>
   );
 }
 
