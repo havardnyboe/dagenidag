@@ -18,7 +18,8 @@ function convertStringToHistorie(str: string) {
     .split(". ");
   let content = "";
   while (items.at(0)) {
-    if ((content + items.at(0)).length <= 200) content += items.shift()?.trim() + ". ";
+    if ((content + items.at(0)).length <= 200)
+      content += items.shift()?.trim() + ". ";
     else items.shift();
   }
   hist.content = content;
@@ -43,11 +44,11 @@ function nextSibling(element: any) {
 }
 
 // Henter et liste-element (ul) ut i fra en gitt id og returnerer den som en tekst-streng
-function getHistorie(page: Document, type: WikiType): Array<string> {
+function getHistorie(page: Document, type: WikiType, test: boolean): Array<string> {
   let content: HTMLElement | undefined | null;
   switch (type) {
     case WikiType.historie:
-      content = page.querySelector("#Historie")?.parentElement?.parentElement;
+      content = test ? page.querySelector("#Historie")?.parentElement : page.querySelector("#Historie")?.parentElement?.parentElement;
       break;
     case WikiType.norsk:
       content = page.querySelector("#Norsk_historie")?.parentElement;
@@ -62,19 +63,22 @@ function getHistorie(page: Document, type: WikiType): Array<string> {
 // returnerer en Promise med en liste fem med historie objekter,
 // der første historie alltid eldste hendelse og siste alltid er nyeste
 // og resten er tilfeldig valgt
-export async function historienIdag(): Promise<historie[]> {
-  const url =
-    "https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=Wikipedia:Dagen_i_dag";
+export async function historienIdag(
+  url: URL = new URL(
+    "https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=Wikipedia:Dagen_i_dag"
+  ),
+  test: boolean = false
+): Promise<historie[]> {
   const dagen_i_dag = fetch(url)
     .then((res) => res.json())
     .then((res) => res.parse.text["*"]);
   const parser = new DOMParser();
   const page = parser.parseFromString(await dagen_i_dag, "text/html");
   const content =
-    getHistorie(page, WikiType.historie)
+    getHistorie(page, WikiType.historie, test)
       .map((hist) => convertStringToHistorie(hist))
       .concat(
-        getHistorie(page, WikiType.norsk).map((hist) =>
+        getHistorie(page, WikiType.norsk, test).map((hist) =>
           convertStringToHistorie(hist)
         )
       ) || new Array<historie>();

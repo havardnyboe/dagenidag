@@ -9,7 +9,7 @@
     "test": "vitest",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "vitest run && npm run build",
     "deploy": "cat CNAME > ./dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {

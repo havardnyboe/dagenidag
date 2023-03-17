@@ -48,7 +48,7 @@ function App() {
               {helligdag ? helligdag[0].name : <br />}
             </div>
             <div>Navnedag:</div>
-            <div>{navnedager[idagLang]}</div>
+            <div data-testid="navnedag">{navnedager[idagLang]}</div>
           </div>
         </div>
       </section>
