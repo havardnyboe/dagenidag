@@ -9,10 +9,19 @@ enum WikiType {
 
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: [0], content: "" };
-  const items = str.split(/–(.*)/s).map((str) => str.trim()); // obs må være – og ikke -
+  let items = str.split(/–(.*)/s).map((str) => str.trim()); // obs må være – og ikke -
   hist.year = historieYear(items[0]?.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   items.shift();
-  hist.content = items.join(" ").replace(/(?:\[)([0-9])(?:])/, ""); // fjerner referanse markeringer ([1] osv.)
+  items = items
+    .join(" ")
+    .replace(/(?:\[)([0-9])(?:])/, "") // fjerner referanse markeringer ([1] osv.)
+    .split(". ");
+  let content = "";
+  while (items.at(0)) {
+    if ((content + items.at(0)).length <= 200) content += items.shift()?.trim() + ". ";
+    else items.shift();
+  }
+  hist.content = content;
 
   return hist;
 }
