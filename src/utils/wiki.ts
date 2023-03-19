@@ -10,19 +10,18 @@ enum WikiType {
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: [0], content: "" };
   let items = str.split(/–(.*)/s).map((str) => str.trim()); // obs må være – og ikke -
-  hist.year = historieYear(items[0]?.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
-  items.shift();
+  hist.year = historieYear(items.shift()!.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   items = items
     .join(" ")
     .replace(/(?:\[)([0-9])(?:])/, "") // fjerner referanse markeringer ([1] osv.)
     .split(". ");
-  let content = "";
+  let content = items.shift();
   while (items.at(0)) {
-    if ((content + items.at(0)).length <= 200)
+    if ((content! + items.at(0)).length <= 200)
       content += items.shift()?.trim() + ". ";
     else items.shift();
   }
-  hist.content = content;
+  hist.content = content!;
 
   return hist;
 }
@@ -44,20 +43,26 @@ function nextSibling(element: any) {
 }
 
 // Henter et liste-element (ul) ut i fra en gitt id og returnerer den som en tekst-streng
-function getHistorie(page: Document, type: WikiType, test: boolean): Array<string> {
-  let content: HTMLElement | undefined | null;
+function getHistorie(
+  page: Document,
+  type: WikiType,
+  test: boolean
+): Array<string> {
+  let content: HTMLElement;
   switch (type) {
     case WikiType.historie:
-      content = test ? page.querySelector("#Historie")?.parentElement : page.querySelector("#Historie")?.parentElement?.parentElement;
+      content = test
+        ? page.querySelector("#Historie")?.parentElement!
+        : page.querySelector("#Historie")?.parentElement?.parentElement!;
       break;
     case WikiType.norsk:
-      content = page.querySelector("#Norsk_historie")?.parentElement;
+      content = page.querySelector("#Norsk_historie")?.parentElement!;
       break;
   }
-  while (content && content?.tagName != "UL") {
+  while (content! && content?.tagName != "UL") {
     content = nextSibling(content);
   }
-  return content?.textContent?.split("\n") || new Array<string>();
+  return content!?.textContent?.split("\n") || new Array<string>();
 }
 
 // returnerer en Promise med en liste fem med historie objekter,
@@ -84,9 +89,9 @@ export async function historienIdag(
       ) || new Array<historie>();
   content.sort(byYear); // sorterer den kombinerte listen
 
-  let historie: any[] = []; // burde definert type men ble litt knot
-  historie.push(content.pop()); // henter første
-  historie.push(content.shift()); // henter siste
+  let historie: historie[] = [];
+  historie.push(content.pop()!); // henter første
+  historie.push(content.shift()!); // henter siste
   const len = content.length > 3 ? 3 : content.length;
   for (let i = 0; i < len; i++) {
     const random = getRandomInt(0, content.length - 1);

@@ -16,7 +16,7 @@ describe("App", () => {
     expect(screen.getByTestId("dagensDato")).toHaveTextContent(datoString);
   });
 
-  it("should show today's date", () => {
+  it("should show today's navnedag", () => {
     render(<App />);
     const navnedager: { [index: string]: string } = navnedag;
     expect(screen.getByTestId("navnedag")).toHaveTextContent(
