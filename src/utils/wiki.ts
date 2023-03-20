@@ -15,7 +15,7 @@ function convertStringToHistorie(str: string) {
     .join(" ")
     .replace(/(?:\[)([0-9])(?:])/, "") // fjerner referanse markeringer ([1] osv.)
     .split(". ");
-  let content = items.shift();
+  let content = items.shift()?.trim() + ". ";
   while (items.at(0)) {
     if ((content! + items.at(0)).length <= 200)
       content += items.shift()?.trim() + ". ";
