@@ -25,7 +25,7 @@ function App() {
       .textContent;
 
   useEffect(() => {
-    historienIdag().then((hist) => {
+    historienIdag(idagLang.replace(" ", "_")).then((hist) => {
       setHistorier(hist);
     });
   }, []);

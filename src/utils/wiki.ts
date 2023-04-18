@@ -43,17 +43,11 @@ function nextSibling(element: any) {
 }
 
 // Henter et liste-element (ul) ut i fra en gitt id og returnerer den som en tekst-streng
-function getHistorie(
-  page: Document,
-  type: WikiType,
-  test: boolean
-): Array<string> {
+function getHistorie(page: Document, type: WikiType): Array<string> {
   let content: HTMLElement;
   switch (type) {
     case WikiType.historie:
-      content = test
-        ? page.querySelector("#Historie")?.parentElement!
-        : page.querySelector("#Historie")?.parentElement?.parentElement!;
+      content = page.querySelector("#Historie")?.parentElement!;
       break;
     case WikiType.norsk:
       content = page.querySelector("#Norsk_historie")?.parentElement!;
@@ -68,22 +62,21 @@ function getHistorie(
 // returnerer en Promise med en liste fem med historie objekter,
 // der første historie alltid eldste hendelse og siste alltid er nyeste
 // og resten er tilfeldig valgt
-export async function historienIdag(
-  url: URL = new URL(
-    "https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=Wikipedia:Dagen_i_dag"
-  ),
-  test: boolean = false
-): Promise<historie[]> {
-  const dagen_i_dag = fetch(url)
+export async function historienIdag(dato: string): Promise<historie[]> {
+  const dagen_i_dag = fetch(
+    new URL(
+      `https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${dato}`
+    )
+  )
     .then((res) => res.json())
     .then((res) => res.parse.text["*"]);
   const parser = new DOMParser();
   const page = parser.parseFromString(await dagen_i_dag, "text/html");
   const content =
-    getHistorie(page, WikiType.historie, test)
+    getHistorie(page, WikiType.historie)
       .map((hist) => convertStringToHistorie(hist))
       .concat(
-        getHistorie(page, WikiType.norsk, test).map((hist) =>
+        getHistorie(page, WikiType.norsk).map((hist) =>
           convertStringToHistorie(hist)
         )
       ) || new Array<historie>();

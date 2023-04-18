@@ -1,12 +1,11 @@
 import { describe, expect, it } from "vitest";
+import { idagLang } from "./dag";
 import { historienIdag } from "./wiki";
 
-const baseUrl =
-  "https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=";
-const hist_idag = await historienIdag();
-const hist_11_feb = await historienIdag(new URL(`${baseUrl}11._februar`), true);
-const hist_9_mars = await historienIdag(new URL(`${baseUrl}9._mars`), true);
-const hist_17_mars = await historienIdag(new URL(`${baseUrl}17._mars`), true);
+const hist_idag = await historienIdag(idagLang.replace(" ", "_"));
+const hist_11_feb = await historienIdag("11._februar");
+const hist_9_mars = await historienIdag("9._mars");
+const hist_17_mars = await historienIdag("17._mars");
 
 const hendelser = [hist_idag, hist_11_feb, hist_9_mars, hist_17_mars];
 
