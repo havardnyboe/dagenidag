@@ -3,7 +3,7 @@ import Holidays from "date-holidays";
 function isLeapYear(year: number) {
   return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
 }
-const input = String(location.pathname.split("").slice(1).join(""));
+const input = String(location.search.split("").slice(1).join(""));
 const date =
   String(new Date(input).getTime()) === "NaN" ? new Date() : new Date(input);
 
