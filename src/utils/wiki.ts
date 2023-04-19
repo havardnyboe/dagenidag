@@ -13,7 +13,8 @@ function convertStringToHistorie(str: string) {
   hist.year = historieYear(items.shift()!.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   items = items
     .join(" ")
-    .replace(/(?:\[)([0-9])(?:])/, "") // fjerner referanse markeringer ([1] osv.)
+    .replace(/(?:\[)(\d)(?:])/, "") // fjerner referanse markeringer ([1] osv.)
+    .replace("[3]", "") // av en eller annen grunn ble ikke denne fjernet automatisk fra 1. januar
     .split(". ");
   let content = items.shift()?.trim() + ". ";
   while (items.at(0)) {
@@ -32,6 +33,14 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * Sorterer historier basert på årstall
+ * 
+ * NB!! ikke implementert funksjonalitet for sortering av år før kristus,
+ * for at dette skal implementeres burde årstall lagres på en annen måte
+ * @param {historie} a - årstall historie a
+ * @param {historie} b - årstall historie b
+*/
 function byYear(a: historie, b: historie) {
   if (a.year[0] > b.year[0]) return 1;
   else if (a.year[0] < b.year[0]) return -1;
@@ -42,7 +51,9 @@ function nextSibling(element: any) {
   return element.nextElementSibling;
 }
 
-// Henter et liste-element (ul) ut i fra en gitt id og returnerer den som en tekst-streng
+/** 
+ * Henter et liste-element (ul) ut i fra en gitt id og returnerer den som en tekst-streng
+*/ 
 function getHistorie(page: Document, type: WikiType): Array<string> {
   let content: HTMLElement;
   switch (type) {
@@ -59,9 +70,11 @@ function getHistorie(page: Document, type: WikiType): Array<string> {
   return content!?.textContent?.split("\n") || new Array<string>();
 }
 
-// returnerer en Promise med en liste fem med historie objekter,
-// der første historie alltid eldste hendelse og siste alltid er nyeste
-// og resten er tilfeldig valgt
+/**
+ * returnerer en Promise med en liste fem med historie objekter,
+ * der første historie alltid eldste hendelse og siste alltid er nyeste
+ * og resten er tilfeldig valgt
+*/
 export async function historienIdag(dato: string): Promise<historie[]> {
   const dagen_i_dag = fetch(
     new URL(
