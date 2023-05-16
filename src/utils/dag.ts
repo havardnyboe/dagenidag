@@ -9,6 +9,9 @@ const date =
 
 let hd = new Holidays("no");
 const helligdag = hd.isHoliday(date);
+if (helligdag && helligdag[0].name.toLowerCase() == "17. mai") {
+  helligdag[0].name = "Grunnlovsdagen"; // date-holidays bruker 17. mai som navn, unngår repeterende navn
+}
 
 const datoString = date.toLocaleDateString("no-NB", {
   weekday: "short",
