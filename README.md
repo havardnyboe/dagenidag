@@ -1,6 +1,6 @@
 # Dagen i Dag
 
-Fortsatt under arbeid...
+[![pages-build-deployment](https://github.com/havardnyboe/dagenidag/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/havardnyboe/dagenidag/actions/workflows/pages/pages-build-deployment)
 
 Gjenskapning av NRKs side 199 fra Tekst-TV da denne ikke lenger oppdateres.
 
