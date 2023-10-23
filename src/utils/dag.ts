@@ -4,8 +4,7 @@ function isLeapYear(year: number) {
   return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
 }
 const input = String(location.search.split("").slice(1).join(""));
-const date =
-  String(new Date(input).getTime()) === "NaN" ? new Date() : new Date(input);
+const date = String(new Date(input).getTime()) === "NaN" ? new Date() : new Date(input);
 
 let hd = new Holidays("no");
 const helligdag = hd.isHoliday(date);

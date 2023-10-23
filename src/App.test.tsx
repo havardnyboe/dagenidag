@@ -19,8 +19,6 @@ describe("App", () => {
   it("should show today's navnedag", () => {
     render(<App />);
     const navnedager: { [index: string]: string } = navnedag;
-    expect(screen.getByTestId("navnedag")).toHaveTextContent(
-      navnedager[idagLang]
-    );
+    expect(screen.getByTestId("navnedag")).toHaveTextContent(navnedager[idagLang]);
   });
 });

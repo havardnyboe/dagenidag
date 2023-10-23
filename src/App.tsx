@@ -11,18 +11,15 @@ import loading from "./img/103.gif";
 
 function App() {
   const navnedager: { [index: string]: string } = navnedag;
-  const sitater: { [index: string]: { author: string; content: string } } =
-    sitat;
+  const sitater: { [index: string]: { author: string; content: string } } = sitat;
   const [historier, setHistorier] = useState(Array<historie>);
 
   const sitatTekst =
-    document.querySelector("#sitat")?.firstElementChild?.nextElementSibling
-      ?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[0]
-      .textContent;
+    document.querySelector("#sitat")?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild
+      ?.nextElementSibling?.childNodes[0].textContent;
   const sitatAv =
-    document.querySelector("#sitat")?.firstElementChild?.nextElementSibling
-      ?.firstElementChild?.firstElementChild?.nextElementSibling?.childNodes[3]
-      .textContent;
+    document.querySelector("#sitat")?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild
+      ?.nextElementSibling?.childNodes[3].textContent;
 
   useEffect(() => {
     historienIdag(idagLang.replace(" ", "_")).then((hist) => {
@@ -44,9 +41,7 @@ function App() {
             {idag}. dag i året, {igjen} igjen
           </div>
           <div className={style.navnedag}>
-            <div className={style.helligdag}>
-              {helligdag ? helligdag[0].name : <br />}
-            </div>
+            <div className={style.helligdag}>{helligdag ? helligdag[0].name : <br />}</div>
             <div>Navnedag:</div>
             <div data-testid="navnedag">{navnedager[idagLang]}</div>
           </div>
@@ -55,9 +50,7 @@ function App() {
       <div className={style.banner}></div>
       {<script src="https://www.ordtak.no/dagens/humor/"></script>}
       {historier.length > 0 ? (
-        historier?.map((hist, i) => (
-          <Historie key={i} year={hist.year} content={hist.content} />
-        ))
+        historier?.map((hist, i) => <Historie key={i} year={hist.year} content={hist.content} />)
       ) : (
         <img className={style.laster} src={loading} alt="laster" />
       )}

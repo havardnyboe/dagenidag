@@ -6,7 +6,10 @@
   "5. januar": { "author": "", "content": "" },
   "6. januar": { "author": "", "content": "" },
   "7. januar": { "author": "Arne Scheie", "content": "Det er nesten ikke sånn at jeg har superlativer!" },
-  "8. januar": { "author": "Henning Solberg", "content": "we break..we break, we broke a braike...a breakpipe, so we have to fix it." },
+  "8. januar": {
+    "author": "Henning Solberg",
+    "content": "we break..we break, we broke a braike...a breakpipe, so we have to fix it."
+  },
   "9. januar": { "author": "", "content": "" },
   "10. januar": { "author": "", "content": "" },
   "11. januar": { "author": "", "content": "" },
@@ -25,24 +28,39 @@
   "24. januar": { "author": "", "content": "" },
   "25. januar": { "author": "", "content": "" },
   "26. januar": { "author": "", "content": "" },
-  "27. januar": { "author": "Ole Einar Bjørndalen", "content": "Jeg er ikke så inne i fotball, men jeg har skjønt at det å score mål er viktig." },
+  "27. januar": {
+    "author": "Ole Einar Bjørndalen",
+    "content": "Jeg er ikke så inne i fotball, men jeg har skjønt at det å score mål er viktig."
+  },
   "28. januar": { "author": "", "content": "" },
   "29. januar": { "author": "", "content": "" },
   "30. januar": { "author": "", "content": "" },
   "31. januar": { "author": "", "content": "" },
   "1. februar": { "author": "", "content": "" },
   "2. februar": { "author": "", "content": "" },
-  "3. februar": { "author": "Honoré de Balzac", "content": "Ingenting styrker et vennskap som den enes tro på at han er bedre enn den andre." },
+  "3. februar": {
+    "author": "Honoré de Balzac",
+    "content": "Ingenting styrker et vennskap som den enes tro på at han er bedre enn den andre."
+  },
   "4. februar": { "author": "", "content": "" },
   "5. februar": { "author": "", "content": "" },
   "6. februar": { "author": "", "content": "" },
   "7. februar": { "author": "", "content": "" },
   "8. februar": { "author": "", "content": "" },
-  "9. februar": { "author": "Harald Eia", "content": "Bård og jeg er som et gammelt ektepar, vår prat opptar all tiden. Å komme mellom oss er som å bli med på et gangbang med et gammelt ektepar." },
-  "10. februar": { "author": "Linda Eide", "content": "Kan me pliis få sleppa å framstå meir. Kan me ikkje berre få vera?" },
+  "9. februar": {
+    "author": "Harald Eia",
+    "content": "Bård og jeg er som et gammelt ektepar, vår prat opptar all tiden. Å komme mellom oss er som å bli med på et gangbang med et gammelt ektepar."
+  },
+  "10. februar": {
+    "author": "Linda Eide",
+    "content": "Kan me pliis få sleppa å framstå meir. Kan me ikkje berre få vera?"
+  },
   "11. februar": { "author": "", "content": "" },
   "12. februar": { "author": "", "content": "" },
-  "13. februar": { "author": "Karoline Krüger", "content": "Det er noen ting vi gjør som er ordentlig viktige. Og så er det noen mellomrom vi trenger for å finne nytt feste." },
+  "13. februar": {
+    "author": "Karoline Krüger",
+    "content": "Det er noen ting vi gjør som er ordentlig viktige. Og så er det noen mellomrom vi trenger for å finne nytt feste."
+  },
   "14. februar": { "author": "", "content": "" },
   "15. februar": { "author": "", "content": "" },
   "16. februar": { "author": "", "content": "" },
@@ -50,11 +68,20 @@
   "18. februar": { "author": "", "content": "" },
   "19. februar": { "author": "", "content": "" },
   "20. februar": { "author": "", "content": "" },
-  "21. februar": { "author": "Harald V", "content": "Nordmenn er jenter som er glad i jenter, gutter som er glad i gutter, og jenter og gutter som er glad i hverandre." },
+  "21. februar": {
+    "author": "Harald V",
+    "content": "Nordmenn er jenter som er glad i jenter, gutter som er glad i gutter, og jenter og gutter som er glad i hverandre."
+  },
   "22. februar": { "author": "", "content": "" },
-  "23. februar": { "author": "Fredrik Solvang", "content": "Er det godt allmennkringkasterinnhold når de snakker om å bli rundpult?" },
+  "23. februar": {
+    "author": "Fredrik Solvang",
+    "content": "Er det godt allmennkringkasterinnhold når de snakker om å bli rundpult?"
+  },
   "24. februar": { "author": "Steinar Sagen", "content": "Satan er en person, Gud er en gass." },
-  "25. februar": { "author": "Anthony Burgess", "content": "Det enkelte menneskes liv er kort, og vi må få mest mulig ut av det. Vin er alltid godt, men hvis wienerschnitzelen er dårlig stekt, må man kaste den rett i ansiktet på kelneren." },
+  "25. februar": {
+    "author": "Anthony Burgess",
+    "content": "Det enkelte menneskes liv er kort, og vi må få mest mulig ut av det. Vin er alltid godt, men hvis wienerschnitzelen er dårlig stekt, må man kaste den rett i ansiktet på kelneren."
+  },
   "26. februar": { "author": "Dimitrij Kielland Samoilow", "content": "Råd du ikke har bedt om, er kritikk." },
   "27. februar": { "author": "", "content": "" },
   "28. februar": { "author": "", "content": "" },
@@ -62,19 +89,28 @@
   "1. mars": { "author": "", "content": "" },
   "2. mars": { "author": "", "content": "" },
   "3. mars": { "author": "", "content": "" },
-  "4. mars": { "author": "Geir (Lasse & Geir)", "content": "Kan'ke du snurpe igjen smella litt a', du maser jo som et lokomotiv." },
+  "4. mars": {
+    "author": "Geir (Lasse & Geir)",
+    "content": "Kan'ke du snurpe igjen smella litt a', du maser jo som et lokomotiv."
+  },
   "5. mars": { "author": "", "content": "" },
   "6. mars": { "author": "", "content": "" },
   "7. mars": { "author": "", "content": "" },
   "8. mars": { "author": "", "content": "" },
   "9. mars": { "author": "", "content": "" },
   "10. mars": { "author": "", "content": "" },
-  "11. mars": { "author": "Erna Solberg", "content": "Jeg håper jeg kan vise at kvinner kan nå langt uten å være unge, pene og tynne." },
+  "11. mars": {
+    "author": "Erna Solberg",
+    "content": "Jeg håper jeg kan vise at kvinner kan nå langt uten å være unge, pene og tynne."
+  },
   "12. mars": { "author": "", "content": "" },
   "13. mars": { "author": "", "content": "" },
   "14. mars": { "author": "", "content": "" },
   "15. mars": { "author": "", "content": "" },
-  "16. mars": { "author": "Jens Stoltenberg", "content": "Når til og med jeg til slutt fikset matematikken, er det håp for alle." },
+  "16. mars": {
+    "author": "Jens Stoltenberg",
+    "content": "Når til og med jeg til slutt fikset matematikken, er det håp for alle."
+  },
   "17. mars": { "author": "", "content": "" },
   "18. mars": { "author": "", "content": "" },
   "19. mars": { "author": "", "content": "" },
@@ -122,7 +158,10 @@
   "30. april": { "author": "", "content": "" },
   "1. mai": { "author": "", "content": "" },
   "2. mai": { "author": "", "content": "" },
-  "3. mai": { "author": "Ole Petter Baugerød Stokke", "content": "Å signere noe med fingeren er omtrent som å kopiere Mona Lisa med foten." },
+  "3. mai": {
+    "author": "Ole Petter Baugerød Stokke",
+    "content": "Å signere noe med fingeren er omtrent som å kopiere Mona Lisa med foten."
+  },
   "4. mai": { "author": "", "content": "" },
   "5. mai": { "author": "", "content": "" },
   "6. mai": { "author": "", "content": "" },
@@ -130,14 +169,23 @@
   "8. mai": { "author": "", "content": "" },
   "9. mai": { "author": "", "content": "" },
   "10. mai": { "author": "", "content": "" },
-  "11. mai": { "author": "Salvador Dalí", "content": "Det er herlig å ha penger, så lenge man har mistet gleden ved ting man kan kjøpe for sex." },
+  "11. mai": {
+    "author": "Salvador Dalí",
+    "content": "Det er herlig å ha penger, så lenge man har mistet gleden ved ting man kan kjøpe for sex."
+  },
   "12. mai": { "author": "", "content": "" },
   "13. mai": { "author": "", "content": "" },
   "14. mai": { "author": "", "content": "" },
   "15. mai": { "author": "", "content": "" },
   "16. mai": { "author": "", "content": "" },
-  "17. mai": { "author": "Harald V", "content": "Når vi synger «Ja vi elsker dette landet», skal vi huske på at vi også synger om hverandre. For det er vi som utgjør landet."},
-  "18. mai": { "author": "Thor Eggen", "content": "Jeg har hørt om folk som røyker gress, men å begynne å spise det, det er noe helt annet." },
+  "17. mai": {
+    "author": "Harald V",
+    "content": "Når vi synger «Ja vi elsker dette landet», skal vi huske på at vi også synger om hverandre. For det er vi som utgjør landet."
+  },
+  "18. mai": {
+    "author": "Thor Eggen",
+    "content": "Jeg har hørt om folk som røyker gress, men å begynne å spise det, det er noe helt annet."
+  },
   "19. mai": { "author": "", "content": "" },
   "20. mai": { "author": "", "content": "" },
   "21. mai": { "author": "", "content": "" },
@@ -146,7 +194,10 @@
   "24. mai": { "author": "", "content": "" },
   "25. mai": { "author": "", "content": "" },
   "26. mai": { "author": "", "content": "" },
-  "27. mai": { "author": "Dag Terje Andersen", "content": "Det skal ingen ta fra Carl I. Hagen, at når han uttaler seg om ferie, så uttaler han seg om noe han har greie på." },
+  "27. mai": {
+    "author": "Dag Terje Andersen",
+    "content": "Det skal ingen ta fra Carl I. Hagen, at når han uttaler seg om ferie, så uttaler han seg om noe han har greie på."
+  },
   "28. mai": { "author": "", "content": "" },
   "29. mai": { "author": "", "content": "" },
   "30. mai": { "author": "", "content": "" },
@@ -167,7 +218,10 @@
   "14. juni": { "author": "", "content": "" },
   "15. juni": { "author": "", "content": "" },
   "16. juni": { "author": "", "content": "" },
-  "17. juni": { "author": "Henrik Wergeland", "content": "Latskap er en synd der er skapt for den gamle mand og den gamle qvinde." },
+  "17. juni": {
+    "author": "Henrik Wergeland",
+    "content": "Latskap er en synd der er skapt for den gamle mand og den gamle qvinde."
+  },
   "18. juni": { "author": "", "content": "" },
   "19. juni": { "author": "", "content": "" },
   "20. juni": { "author": "", "content": "" },
@@ -206,7 +260,10 @@
   "23. juli": { "author": "", "content": "" },
   "24. juli": { "author": "", "content": "" },
   "25. juli": { "author": "", "content": "" },
-  "26. juli": { "author": "Bjarte Paul Tjøstheim", "content": "Det er bedre med penisdritt på føttene enn fotdritt på penis." },
+  "26. juli": {
+    "author": "Bjarte Paul Tjøstheim",
+    "content": "Det er bedre med penisdritt på føttene enn fotdritt på penis."
+  },
   "27. juli": { "author": "", "content": "" },
   "28. juli": { "author": "", "content": "" },
   "29. juli": { "author": "", "content": "" },
@@ -219,7 +276,10 @@
   "5. august": { "author": "", "content": "" },
   "6. august": { "author": "", "content": "" },
   "7. august": { "author": "", "content": "" },
-  "8. august": { "author": "Jostein Gaarder", "content": "Livet er en fornøyelsespark, og ettertanken strekker seg ikke lenger enn til tivoliets stengetid." },
+  "8. august": {
+    "author": "Jostein Gaarder",
+    "content": "Livet er en fornøyelsespark, og ettertanken strekker seg ikke lenger enn til tivoliets stengetid."
+  },
   "9. august": { "author": "", "content": "" },
   "10. august": { "author": "", "content": "" },
   "11. august": { "author": "", "content": "" },
@@ -245,7 +305,10 @@
   "31. august": { "author": "", "content": "" },
   "1. september": { "author": "", "content": "" },
   "2. september": { "author": "", "content": "" },
-  "3. september": { "author": "Kjell Magne Bondevik", "content": "Jeg har sagt det tusen ganger før, og nå sier jeg det for tredje og siste gang." },
+  "3. september": {
+    "author": "Kjell Magne Bondevik",
+    "content": "Jeg har sagt det tusen ganger før, og nå sier jeg det for tredje og siste gang."
+  },
   "4. september": { "author": "", "content": "" },
   "5. september": { "author": "", "content": "" },
   "6. september": { "author": "", "content": "" },
@@ -259,7 +322,10 @@
   "14. september": { "author": "", "content": "" },
   "15. september": { "author": "", "content": "" },
   "16. september": { "author": "", "content": "" },
-  "17. september": { "author": "Rolv Wesenlund", "content": "Det kommer ikke an på hva man spiser mellom jul og nyttår, men hva man spiser mellom nyttår og jul." },
+  "17. september": {
+    "author": "Rolv Wesenlund",
+    "content": "Det kommer ikke an på hva man spiser mellom jul og nyttår, men hva man spiser mellom nyttår og jul."
+  },
   "18. september": { "author": "", "content": "" },
   "19. september": { "author": "", "content": "" },
   "20. september": { "author": "", "content": "" },
@@ -275,13 +341,19 @@
   "30. september": { "author": "", "content": "" },
   "1. oktober": { "author": "", "content": "" },
   "2. oktober": { "author": "", "content": "" },
-  "3. oktober": { "author": "Kåre Willoch", "content": "Mine meninger har nok endret seg, men ikke det faktum at jeg har rett." },
+  "3. oktober": {
+    "author": "Kåre Willoch",
+    "content": "Mine meninger har nok endret seg, men ikke det faktum at jeg har rett."
+  },
   "4. oktober": { "author": "", "content": "" },
   "5. oktober": { "author": "", "content": "" },
   "6. oktober": { "author": "", "content": "" },
   "7. oktober": { "author": "", "content": "" },
   "8. oktober": { "author": "", "content": "" },
-  "9. oktober": { "author": "Jens Bjørneboe", "content": "Makt, som er det eneste eksisterende prinsipp, betyr bare en ting: adgang til å påføre andre smerte." },
+  "9. oktober": {
+    "author": "Jens Bjørneboe",
+    "content": "Makt, som er det eneste eksisterende prinsipp, betyr bare en ting: adgang til å påføre andre smerte."
+  },
   "10. oktober": { "author": "", "content": "" },
   "11. oktober": { "author": "", "content": "" },
   "12. oktober": { "author": "", "content": "" },
@@ -292,15 +364,24 @@
   "17. oktober": { "author": "", "content": "" },
   "18. oktober": { "author": "", "content": "" },
   "19. oktober": { "author": "", "content": "" },
-  "20. oktober": { "author": "Snoop Dogg", "content": "I keep hearing about muthafucking Harry Potter. Who is this muthafucker?" },
+  "20. oktober": {
+    "author": "Snoop Dogg",
+    "content": "I keep hearing about muthafucking Harry Potter. Who is this muthafucker?"
+  },
   "21. oktober": { "author": "Alfred Nobel", "content": "Etter landbruk er humbug den største industrien i vår tid." },
   "22. oktober": { "author": "", "content": "" },
   "23. oktober": { "author": "", "content": "" },
-  "24. oktober": { "author": "Kjell Inge Røkke", "content": "Alle snakker om å være lykkelig, men hva er vitsen? Lykke kan aldri kjøpe deg penger." },
+  "24. oktober": {
+    "author": "Kjell Inge Røkke",
+    "content": "Alle snakker om å være lykkelig, men hva er vitsen? Lykke kan aldri kjøpe deg penger."
+  },
   "25. oktober": { "author": "", "content": "" },
   "26. oktober": { "author": "", "content": "" },
   "27. oktober": { "author": "Mia Gundersen", "content": "Jeg pleier å si at bitterheten stenger blodtilførselen." },
-  "28. oktober": { "author": "Bill Gates", "content": "Den neste generasjonen av spennende programvare vil bli gjort på Macintosh, og ikke på IBM PC" },
+  "28. oktober": {
+    "author": "Bill Gates",
+    "content": "Den neste generasjonen av spennende programvare vil bli gjort på Macintosh, og ikke på IBM PC"
+  },
   "29. oktober": { "author": "", "content": "" },
   "30. oktober": { "author": "", "content": "" },
   "31. oktober": { "author": "", "content": "" },
@@ -310,13 +391,19 @@
   "4. november": { "author": "", "content": "" },
   "5. november": { "author": "", "content": "" },
   "6. november": { "author": "Knut Johannesen", "content": "Sølv er ikke et nederlag, bronse er et nederlag." },
-  "7. november": { "author": "Tore Sagen", "content": "En firkløver er vel ikke noe annet enn en trekløver med Downs Syndrom." },
+  "7. november": {
+    "author": "Tore Sagen",
+    "content": "En firkløver er vel ikke noe annet enn en trekløver med Downs Syndrom."
+  },
   "8. november": { "author": "", "content": "" },
   "9. november": { "author": "", "content": "" },
   "10. november": { "author": "", "content": "" },
   "11. november": { "author": "", "content": "" },
   "12. november": { "author": "", "content": "" },
-  "13. november": { "author": "Aud Schønemann", "content": "Det skulle ikke undre meg om jeg blir 100 år, så fort som tida går nå." },
+  "13. november": {
+    "author": "Aud Schønemann",
+    "content": "Det skulle ikke undre meg om jeg blir 100 år, så fort som tida går nå."
+  },
   "14. november": { "author": "", "content": "" },
   "15. november": { "author": "", "content": "" },
   "16. november": { "author": "", "content": "" },
@@ -358,9 +445,15 @@
   "22. desember": { "author": "", "content": "" },
   "23. desember": { "author": "", "content": "" },
   "24. desember": { "author": "", "content": "" },
-  "25. desember": { "author": "Hans Gruber", "content": "What was it you said to me earlier? «Yippie-kay-ya, motherfucker»" },
+  "25. desember": {
+    "author": "Hans Gruber",
+    "content": "What was it you said to me earlier? «Yippie-kay-ya, motherfucker»"
+  },
   "26. desember": { "author": "", "content": "" },
-  "27. desember": { "author": "Dynamitt-Harry", "content": "Alle tenker på seg, Egon. Det er bare jeg som tenker på … meg" },
+  "27. desember": {
+    "author": "Dynamitt-Harry",
+    "content": "Alle tenker på seg, Egon. Det er bare jeg som tenker på … meg"
+  },
   "28. desember": { "author": "", "content": "" },
   "29. desember": { "author": "", "content": "" },
   "30. desember": { "author": "", "content": "" },
