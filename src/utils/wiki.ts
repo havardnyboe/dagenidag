@@ -7,6 +7,34 @@ enum WikiType {
   dødsfall,
 }
 
+const testData = [
+  {
+    year: [40, " f.Kr."],
+    content: "Ifølge Ussher-Lightfoot-kalenderen ble jorden skapt denne dagen kl. 18. ",
+  },
+  {
+    year: [4004, " f.Kr."],
+    content: "Ifølge Ussher-Lightfoot-kalenderen ble jorden skapt denne dagen kl. 18. ",
+  },
+  {
+    year: [1836],
+    content: "Sam Houston ble innsatt som første president i Republikken Texas. ",
+  },
+  {
+    year: [1953],
+    content: "Laos ble uavhengig. ",
+  },
+  {
+    year: [1999],
+    content:
+      "Maurice Papon, fransk politiker, fengslet for forbrytelser mot menneskeheten begått under andre verdenskrig. ",
+  },
+  {
+    year: [2021],
+    content: "Munchmuseet i Bjørvika ble åpnet av kong Harald og dronning Sonja. ",
+  },
+];
+
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: [0], content: "" };
   let items = str.split(/–(.*)/s).map((str) => str.trim()); // obs må være – og ikke -
@@ -18,8 +46,7 @@ function convertStringToHistorie(str: string) {
     .split(". ");
   let content = items.shift()?.trim() + ". ";
   while (items.at(0)) {
-    if ((content! + items.at(0)).length <= 200)
-      content += items.shift()?.trim() + ". ";
+    if ((content! + items.at(0)).length <= 200) content += items.shift()?.trim() + ". ";
     else items.shift();
   }
   hist.content = content!;
@@ -35,25 +62,28 @@ function getRandomInt(min: number, max: number) {
 
 /**
  * Sorterer historier basert på årstall
- * 
- * NB!! ikke implementert funksjonalitet for sortering av år før kristus,
- * for at dette skal implementeres burde årstall lagres på en annen måte
- * @param {historie} a - årstall historie a
- * @param {historie} b - årstall historie b
-*/
+ */
 function byYear(a: historie, b: historie) {
-  if (a.year[0] > b.year[0]) return 1;
-  else if (a.year[0] < b.year[0]) return -1;
-  else return 0;
+  if (a.year[1] && b.year[1]) {
+    if (a.year[1] > b.year[1]) return 1;
+    else if (a.year[1] < b.year[1]) return -1;
+    else return 0;
+  } else if (a.year.length > 1) return -1;
+  else if (b.year.length > 1) return 1;
+  else {
+    if (a.year[0] > b.year[0]) return 1;
+    else if (a.year[0] < b.year[0]) return -1;
+    else return 0;
+  }
 }
 
 function nextSibling(element: any) {
   return element.nextElementSibling;
 }
 
-/** 
+/**
  * Henter et liste-element (ul) ut i fra en gitt id og returnerer den som en tekst-streng
-*/ 
+ */
 function getHistorie(page: Document, type: WikiType): Array<string> {
   let content: HTMLElement;
   switch (type) {
@@ -74,12 +104,10 @@ function getHistorie(page: Document, type: WikiType): Array<string> {
  * returnerer en Promise med en liste fem med historie objekter,
  * der første historie alltid eldste hendelse og siste alltid er nyeste
  * og resten er tilfeldig valgt
-*/
+ */
 export async function historienIdag(dato: string): Promise<historie[]> {
   const dagen_i_dag = fetch(
-    new URL(
-      `https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${dato}`
-    )
+    new URL(`https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${dato}`),
   )
     .then((res) => res.json())
     .then((res) => res.parse.text["*"]);
@@ -88,11 +116,7 @@ export async function historienIdag(dato: string): Promise<historie[]> {
   const content =
     getHistorie(page, WikiType.historie)
       .map((hist) => convertStringToHistorie(hist))
-      .concat(
-        getHistorie(page, WikiType.norsk).map((hist) =>
-          convertStringToHistorie(hist)
-        )
-      ) || new Array<historie>();
+      .concat(getHistorie(page, WikiType.norsk).map((hist) => convertStringToHistorie(hist))) || new Array<historie>();
   content.sort(byYear); // sorterer den kombinerte listen
 
   let historie: historie[] = [];
@@ -104,6 +128,7 @@ export async function historienIdag(dato: string): Promise<historie[]> {
     historie.push(content?.splice(random, 1)[0]);
   }
   historie.sort(byYear);
+  console.log(historie);
 
   return historie;
 }
