@@ -128,7 +128,6 @@ export async function historienIdag(dato: string): Promise<historie[]> {
     historie.push(content?.splice(random, 1)[0]);
   }
   historie.sort(byYear);
-  console.log(historie);
 
   return historie;
 }
