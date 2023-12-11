@@ -21,7 +21,36 @@ function App() {
     document.querySelector("#sitat")?.firstElementChild?.nextElementSibling?.firstElementChild?.firstElementChild
       ?.nextElementSibling?.childNodes[3].textContent;
 
+
+  function switchPage(event: KeyboardEvent) {
+    const iDag = new Date(new Date().getFullYear(), 0, idag + 1);
+    // bytt side med ctrl + piltaster eller home for å gå tilbake til dagens dato
+    if (event.ctrlKey) {
+      if (event.key === "ArrowLeft") {
+        iDag.setDate(iDag.getDate() - 1);
+        window.location.href = "/?" + iDag.toISOString().substring(0, 10);
+      }
+      if (event.key === "ArrowRight") {
+        iDag.setDate(iDag.getDate() + 1);
+        window.location.href = "/?" + iDag.toISOString().substring(0, 10);
+      }
+      if (event.key === "ArrowUp") {
+        iDag.setDate(iDag.getDate() + 7);
+        window.location.href = "/?" + iDag.toISOString().substring(0, 10);
+      }
+      if (event.key === "ArrowDown") {
+        iDag.setDate(iDag.getDate() - 7);
+        window.location.href = "/?" + iDag.toISOString().substring(0, 10);
+      }
+      if (event.key === "Home") {
+        iDag.setDate(new Date().getDate() + 1);
+        window.location.href = "/?" + iDag.toISOString().substring(0, 10);
+      }
+    }
+  }
+
   useEffect(() => {
+    window.addEventListener("keydown", switchPage);
     historienIdag(idagLang.replace(" ", "_")).then((hist) => {
       setHistorier(hist);
     });

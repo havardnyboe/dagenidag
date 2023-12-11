@@ -6,6 +6,8 @@ Gjenskapning av NRKs side 199 fra Tekst-TV da denne ikke lenger oppdateres.
 
 Standard-siden viser dagens "dagen i dag" side, men det er mulig å spesifisere datoer i URLen. F.eks. vil [dagenidag.com/?2023-01-01](https://www.dagenidag.com/?2023-01-01) vise informasjonen for 1. januar 2023.
 
+Kan også navigere til neste og forrige dag ved å holde ctrl-tasten inne og trykke pil høyre eller venstre. Pil opp og pil ned vil navigere til neste og forrige uke.
+
 ## Navnedager
 
 Navnedagene er lagt til manuelt etter [listen over norske navnedager](https://no.wikipedia.org/wiki/Liste_over_norske_navnedager) som baserer seg på Almanakkforlagets liste.
