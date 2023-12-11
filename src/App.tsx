@@ -41,7 +41,7 @@ function App() {
             {idag}. dag i året, {igjen} igjen
           </div>
           <div className={style.navnedag}>
-            <div className={style.helligdag}>{helligdag ? helligdag[0].name : <br />}</div>
+            <div className={style.helligdag}>{helligdag ? helligdag.map((h) => h.name + "\n") : <br />}</div>
             <div>Navnedag:</div>
             <div data-testid="navnedag">{navnedager[idagLang]}</div>
           </div>
