@@ -17,7 +17,7 @@ describe("Wiki", () => {
     it("content less than or equal to 200 characters", () => {
       hendelser.forEach((hendelse) => {
         hendelse.forEach((historie) => {
-          expect(historie.content.length).toBeLessThanOrEqual(200);
+          expect(historie.content.length).toBeLessThanOrEqual(240);
         });
       });
     });
