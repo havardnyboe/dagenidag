@@ -21,7 +21,10 @@
   "17. januar": { "author": "", "content": "" },
   "18. januar": { "author": "", "content": "" },
   "19. januar": { "author": "", "content": "" },
-  "20. januar": { "author": "Einar Førde (Ap)", "content": "Me får finne oss i at synda er komen til jorda, men vi vil ikkje ha ho i fargar." },
+  "20. januar": {
+    "author": "Einar Førde (Ap)",
+    "content": "Me får finne oss i at synda er komen til jorda, men vi vil ikkje ha ho i fargar."
+  },
   "21. januar": { "author": "", "content": "" },
   "22. januar": { "author": "", "content": "" },
   "23. januar": { "author": "", "content": "" },
@@ -145,7 +148,10 @@
   "17. april": { "author": "", "content": "" },
   "18. april": { "author": "", "content": "" },
   "19. april": { "author": "", "content": "" },
-  "20. april": { "author": "Gro Harlem Brundtland (Ap)", "content": "Akupunktur må ha noe for seg, det er jo veldig sjelden man ser syke pinnsvin." },
+  "20. april": {
+    "author": "Gro Harlem Brundtland (Ap)",
+    "content": "Akupunktur må ha noe for seg, det er jo veldig sjelden man ser syke pinnsvin."
+  },
   "21. april": { "author": "", "content": "" },
   "22. april": { "author": "", "content": "" },
   "23. april": { "author": "", "content": "" },
@@ -256,7 +262,10 @@
   "19. juli": { "author": "", "content": "" },
   "20. juli": { "author": "", "content": "" },
   "21. juli": { "author": "Liv Finstad (RV)", "content": "Sauer er ålreite dyr." },
-  "22. juli": { "author": "Jens Stoltenberg (Ap)", "content": "Ondskap kan drepe et menneske, men aldri beseire et folk." },
+  "22. juli": {
+    "author": "Jens Stoltenberg (Ap)",
+    "content": "Ondskap kan drepe et menneske, men aldri beseire et folk."
+  },
   "23. juli": { "author": "", "content": "" },
   "24. juli": { "author": "", "content": "" },
   "25. juli": { "author": "", "content": "" },
@@ -296,7 +305,10 @@
   "22. august": { "author": "", "content": "" },
   "23. august": { "author": "", "content": "" },
   "24. august": { "author": "", "content": "" },
-  "25. august": { "author": "Jonas Gahr Støre (Ap)", "content": "Jeg har et spørsmål til finansministeren. Takk for i går, for å si det sånn, eller i dag tidlig." },
+  "25. august": {
+    "author": "Jonas Gahr Støre (Ap)",
+    "content": "Jeg har et spørsmål til finansministeren. Takk for i går, for å si det sånn, eller i dag tidlig."
+  },
   "26. august": { "author": "", "content": "" },
   "27. august": { "author": "", "content": "" },
   "28. august": { "author": "", "content": "" },
@@ -429,7 +441,10 @@
   "6. desember": { "author": "", "content": "" },
   "7. desember": { "author": "", "content": "" },
   "8. desember": { "author": "", "content": "" },
-  "9. desember": { "author": "", "content": "" },
+  "9. desember": {
+    "author": "Kari Bremnes",
+    "content": "Det å være småbarnsmor er det mest rocka jeg har vært med på."
+  },
   "10. desember": { "author": "", "content": "" },
   "11. desember": { "author": "", "content": "" },
   "12. desember": { "author": "", "content": "" },
