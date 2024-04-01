@@ -23,9 +23,14 @@ function App() {
 
 
   function switchPage(event: KeyboardEvent) {
-    const iDag = new Date(new Date().getFullYear(), 0, idag + 1);
+    const iDag =
+      window.location.search.length > 1
+        ? new Date(window.location.search.replace("?", ""))
+        : new Date(new Date().getFullYear(), 0, idag + 1);
     // bytt side med ctrl + piltaster eller home for å gå tilbake til dagens dato
     if (event.ctrlKey) {
+      console.log(window.location.search.replace("?", ""));
+      console.log("IDAG:", iDag);
       if (event.key === "ArrowLeft") {
         iDag.setDate(iDag.getDate() - 1);
         window.location.href = "/?" + iDag.toISOString().substring(0, 10);
@@ -43,7 +48,8 @@ function App() {
         window.location.href = "/?" + iDag.toISOString().substring(0, 10);
       }
       if (event.key === "Home") {
-        iDag.setDate(new Date().getDate() + 1);
+        if (iDag.toISOString().substring(0, 10) !== new Date().toISOString().substring(0, 10))
+          iDag.setFullYear(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1);
         window.location.href = "/?" + iDag.toISOString().substring(0, 10);
       }
     }
@@ -70,7 +76,18 @@ function App() {
             {idag}. dag i året, {igjen} igjen
           </div>
           <div className={style.navnedag}>
-            <div className={style.helligdag}>{helligdag ? helligdag.map((h) => h.name + "\n") : <br />}</div>
+            <div className={style.helligdag}>
+              {helligdag ? (
+                helligdag.map((h) => (
+                  <span>
+                    {h.name}
+                    <br />
+                  </span>
+                ))
+              ) : (
+                <br />
+              )}
+            </div>
             <div>Navnedag:</div>
             <div data-testid="navnedag">{navnedager[idagLang]}</div>
           </div>
