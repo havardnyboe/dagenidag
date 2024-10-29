@@ -9,7 +9,8 @@ enum WikiType {
 
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: [0], content: "" };
-  let items = str.split(/–(.*)|—(.*)/s).map((str) => (str ? str.trim() : "")); // splitter på både – og -
+  //let items = str.split(/–(.*)|—(.*)/s).map((str) => (str ? str.trim() : "")); // splitter på både – og -
+  let items = str.split(/–(.*)|—(.*)|-(.*)/s).map((str) => (str ? str.trim() : "")); // splitter på både – og -
   items = items.filter((item) => item !== "");
   hist.year = historieYear(items.shift()!.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   items = items
