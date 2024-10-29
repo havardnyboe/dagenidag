@@ -7,37 +7,10 @@ enum WikiType {
   dødsfall,
 }
 
-const testData = [
-  {
-    year: [40, " f.Kr."],
-    content: "Ifølge Ussher-Lightfoot-kalenderen ble jorden skapt denne dagen kl. 18. ",
-  },
-  {
-    year: [4004, " f.Kr."],
-    content: "Ifølge Ussher-Lightfoot-kalenderen ble jorden skapt denne dagen kl. 18. ",
-  },
-  {
-    year: [1836],
-    content: "Sam Houston ble innsatt som første president i Republikken Texas. ",
-  },
-  {
-    year: [1953],
-    content: "Laos ble uavhengig. ",
-  },
-  {
-    year: [1999],
-    content:
-      "Maurice Papon, fransk politiker, fengslet for forbrytelser mot menneskeheten begått under andre verdenskrig. ",
-  },
-  {
-    year: [2021],
-    content: "Munchmuseet i Bjørvika ble åpnet av kong Harald og dronning Sonja. ",
-  },
-];
-
 function convertStringToHistorie(str: string) {
   let hist: historie = { year: [0], content: "" };
-  let items = str.split(/–(.*)/s).map((str) => str.trim()); // obs må være – og ikke -
+  let items = str.split(/–(.*)|—(.*)/s).map((str) => (str ? str.trim() : "")); // splitter på både – og -
+  items = items.filter((item) => item !== "");
   hist.year = historieYear(items.shift()!.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   items = items
     .join(" ")
@@ -49,7 +22,7 @@ function convertStringToHistorie(str: string) {
     if ((content! + items.at(0)).length <= 200) content += items.shift()?.trim() + ". ";
     else items.shift();
   }
-  hist.content = content!;
+  hist.content = content.slice(0, -2)!; // slicer vekk siste punktum
 
   return hist;
 }
