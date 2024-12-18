@@ -3,15 +3,16 @@ import { historie, historieYear } from "../components";
 enum WikiType {
   historie,
   norsk,
+  amerikanskePresidenter,
   fødsel,
   dødsfall,
 }
 
 function convertStringToHistorie(str: string) {
-  let hist: historie = { year: [0], content: "" };
+  let historie: historie = { year: [0], content: "" };
   let items = str.split(/–(.*)|—(.*)|-(.*)/s).map((str) => (str ? str.trim() : "")); // splitter på – og — og -
   items = items.filter((item) => item !== "");
-  hist.year = historieYear(items.shift()!.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
+  historie.year = historieYear(items.shift()!.split(" ")); // håndterer edge-case hvor årstall inneholder f.kr.
   items = items
     .join(" ")
     .replace(/(?:\[)(\d)(?:])/, "") // fjerner referanse markeringer ([1] osv.)
@@ -22,9 +23,9 @@ function convertStringToHistorie(str: string) {
     if ((content! + items.at(0)).length <= 200) content += items.shift()?.trim() + ". ";
     else items.shift();
   }
-  hist.content = content.slice(0, -2)!; // slicer vekk siste punktum
+  historie.content = content.slice(0, -2)!; // slicer vekk siste punktum
 
-  return hist;
+  return historie;
 }
 
 function getRandomInt(min: number, max: number) {
@@ -66,6 +67,8 @@ function getHistorie(page: Document, type: WikiType): Array<string> {
     case WikiType.norsk:
       content = page.querySelector("#Norsk_historie")?.parentElement!;
       break;
+    case WikiType.amerikanskePresidenter:
+      content = page.querySelector("#Amerikanske_presidenter")?.parentElement!;
   }
   while (content! && content?.tagName != "UL") {
     content = nextSibling(content);
@@ -80,16 +83,16 @@ function getHistorie(page: Document, type: WikiType): Array<string> {
  */
 export async function historienIdag(dato: string): Promise<historie[]> {
   const dagen_i_dag = fetch(
-    new URL(`https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${dato}`),
+    new URL(`https://no.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${dato}`)
   )
     .then((res) => res.json())
     .then((res) => res.parse.text["*"]);
   const parser = new DOMParser();
   const page = parser.parseFromString(await dagen_i_dag, "text/html");
-  const content =
-    getHistorie(page, WikiType.historie)
-      .map((hist) => convertStringToHistorie(hist))
-      .concat(getHistorie(page, WikiType.norsk).map((hist) => convertStringToHistorie(hist))) || new Array<historie>();
+  let content: historie[] = getHistorie(page, WikiType.historie).map((hist) => convertStringToHistorie(hist));
+  content = content.concat(getHistorie(page, WikiType.norsk).map((hist) => convertStringToHistorie(hist)));
+  content = content.concat(getHistorie(page, WikiType.amerikanskePresidenter).map((hist) => convertStringToHistorie(hist)));
+
   content.sort(byYear); // sorterer den kombinerte listen
 
   let historie: historie[] = [];
