@@ -94,7 +94,6 @@ function App() {
         </div>
       </section>
       <div className={style.banner}></div>
-      {<script src="https://www.ordtak.no/dagens/humor/"></script>}
       {historier.length > 0 ? (
         historier?.map((hist, i) => <Historie key={i} year={hist.year} content={hist.content} />)
       ) : (
