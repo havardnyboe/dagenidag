@@ -90,7 +90,10 @@
   "28. februar": { "author": "", "content": "" },
   "29. februar": { "author": "", "content": "" },
   "1. mars": { "author": "", "content": "" },
-  "2. mars": { "author": "", "content": "" },
+  "2. mars": {
+    "author": "Eleanor Roosevelt",
+    "content": "Det er ikke nok å snakke om fred. Du må tro på det. Og det er ikke nok å tro på det. Du må jobbe for det."
+  },
   "3. mars": { "author": "", "content": "" },
   "4. mars": {
     "author": "Geir (Lasse & Geir)",
